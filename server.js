@@ -48,6 +48,8 @@ app.get('/weather', (request, response) => {
             });
         });
 });
+// app.get('/events',)
+
 // Pull Da Lever!
 app.listen(PORT, () => {
     console.log('The elves are working on PORT', PORT);
