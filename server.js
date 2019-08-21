@@ -48,7 +48,7 @@ app.get('/weather', (request, response) => {
             });
         });
 });
-app.get('/events',)
+// app.get('/events',)
 
 // Pull Da Lever!
 app.listen(PORT, () => {
