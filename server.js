@@ -7,7 +7,7 @@ const morgan = require('morgan');
 
 //API Dependencies
 const mapsApi = require('./lib/maps-api');
-const weatherApi = require('./lib/weather-api');
+// const weatherApi = require('./lib/weather-api');
 
 // Setup
 // make express app
@@ -36,34 +36,34 @@ app.get('/location', (request, response) => {
 //------------------------------------ BREAK EVERYTHING BELOW THIS LINE INTO SEPARATE FILES ----------------------
 
 
-// node CJS "require" parses JSON into array/object
-const geoData = require('./data/geo.json');
-// helpers
-function getLatLng(/* Location goes here*/) {
-    // return hard coded for now, API will replace this
-    return toLocation(geoData);
-}
-function toLocation(/* geodata */) {
-    const firstResult = geoData.results[0];
-    const geometry = firstResult.geometry;
+// // node CJS "require" parses JSON into array/object
+// const geoData = require('./data/geo.json');
+// // helpers
+// function getLatLng(/* Location goes here*/) {
+//     // return hard coded for now, API will replace this
+//     return toLocation(geoData);
+// }
+// function toLocation(/* geodata */) {
+//     const firstResult = geoData.results[0];
+//     const geometry = firstResult.geometry;
     
-    return {
-        formatted_query: firstResult.formatted_address,
-        latitude: geometry.location.lat,
-        longitude: geometry.location.lng
-    };
-}
-app.get('/weather', (request, response) => {
-    try {
-        const weather = request.query.weather;
-        const result = getWeather(weather);
-        response.status(200).json(result);
+//     return {
+//         formatted_query: firstResult.formatted_address,
+//         latitude: geometry.location.lat,
+//         longitude: geometry.location.lng
+//     };
+// }
+// app.get('/weather', (request, response) => {
+//     try {
+//         const weather = request.query.weather;
+//         const result = getWeather(weather);
+//         response.status(200).json(result);
 
-    }
-    catch(err) {
-        response.status(500).send('Sorry, the elves are on break and could not process your request');
-    }
-});
+//     }
+//     catch(err) {
+//         response.status(500).send('Sorry, the elves are on break and could not process your request');
+//     }
+// });
 
 
 
